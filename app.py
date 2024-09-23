@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, Response
 import requests
 from deep_translator import GoogleTranslator
-
+import os
 app = Flask(__name__)
 
 # Hàm để lấy quote từ ZenQuotes API
@@ -83,5 +83,29 @@ def get_joke():
     translated_joke = translate_text(joke, lang)
     return jsonify({"joke": translated_joke}), 200
 
+def get_port():
+    port_file = 'port.txt'
+
+    # Kiểm tra nếu file tồn tại
+    if os.path.exists(port_file):
+        try:
+            with open(port_file, 'r') as file:
+                port = int(file.read().strip())
+                print(f"Đã lấy cổng từ file: {port}")
+                return port
+        except ValueError:
+            print("File port.txt không hợp lệ. Yêu cầu nhập lại")
+
+    # Nếu không có file hoặc file không hợp lệ, yêu cầu nhập từ>
+    while True:
+        try:
+            port = int(input("Nhập cổng để chạy ứng dụng: "))
+            with open(port_file, 'w') as file:
+                file.write(str(port))
+            return port
+        except ValueError:
+            print("Vui lòng nhập một số hợp lệ.")
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = get_port()
+    app.run(debug=True, port=port)
