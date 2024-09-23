@@ -21,7 +21,7 @@ chmod +x setup.sh
 setup.bat
 ```
 **LƯU Ý: Linux thì dùng ssh để open public cho API**
-**	Còn Win 10/11: ssh cài sẵn còn 7/8 thì cài Putty**
+- **Còn Win 10/11: ssh cài sẵn còn 7/8 thì cài Putty**
 ## Chạy server public
 - Lệnh Linux / mac / android
 ```bash
@@ -51,9 +51,9 @@ Sau khi cài đặt, mở PuTTY.
 
 2. Trong mục Add new forwarded port:
 
-Ở trường Source Port, nhập cổng mà bạn muốn chuyển tiếp từ máy cục bộ. Ví dụ, nếu ứng dụng cục bộ của bạn đang chạy trên cổng 3000, bạn nhập 3000.
+Ở trường Source Port, nhập cổng mà bạn muốn chuyển tiếp từ máy cục bộ. Ví dụ, nếu ứng dụng cục bộ của bạn đang chạy trên cổng 5000, bạn nhập 5000.
 
-Ở trường Destination, nhập localhost:3000 (hoặc cổng mà ứng dụng của bạn đang chạy cục bộ).
+Ở trường Destination, nhập localhost:5000 (hoặc cổng mà ứng dụng của bạn đang chạy cục bộ).
 
 
 
@@ -90,7 +90,7 @@ serveo.net -R yourname.serveo.net:80:localhost:3000
 
 Thay yourname bằng tên bạn mong muốn. Sau khi cấu hình và kết nối, bạn sẽ có một tên miền dạng https://yourname.serveo.net có thể truy cập công khai.
 
-### Bước 6: Kết thúc kết nối
+### Bước 5: Kết thúc kết nối
 
 Để ngắt kết nối, chỉ cần đóng cửa sổ PuTTY hoặc nhấn Ctrl + C nếu đang trong cửa sổ lệnh.
 ## API dùng thử
